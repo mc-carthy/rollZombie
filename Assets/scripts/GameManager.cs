@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 			GetZombieRight ();
 		}
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
-
+			PushUp ();
 		}
 	}
 
@@ -49,5 +49,10 @@ public class GameManager : MonoBehaviour {
 			selectedZombiePosition++;
 		}
 		SelectZombie (zombies [selectedZombiePosition]);
+	}
+
+	private void PushUp () {
+		Rigidbody rb = selectedZombie.GetComponent<Rigidbody> ();
+		rb.AddForce (0, 0, 10, ForceMode.Impulse);
 	}
 }
